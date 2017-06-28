@@ -6,13 +6,13 @@ const objectid=require('mongodb').ObjectId;
 MongoClient.connect('mongodb://localhost:27017/todoapp',(err,db)=>{
     
     
-  /*  if(err){
+    if(err){
         return console.log('unable to connect ');
     }
     console.log('connected to mongo db');
     
 
-    db.collection('todos').find().count().then((count)=>{
+  /*  db.collection('todos').find().count().then((count)=>{
         
         console.log(count);
     },(err)=>{
@@ -21,7 +21,7 @@ MongoClient.connect('mongodb://localhost:27017/todoapp',(err,db)=>{
     
     //db.close();
    
-    if(err){
+   /* if(err){
         return console.log(err);
     }
     console.log('ón');
@@ -30,5 +30,16 @@ MongoClient.connect('mongodb://localhost:27017/todoapp',(err,db)=>{
     },(err)=>{
         console.log(err);
     });
+    */
+    db.collection('todos').insertOne({
+        text:'pop',
+        completed:false
+    },(err,result)=>{
+if(err){
+    return console.log(failed);
+}
+        console.log(result.ops);
+        
+    })
     
 });
